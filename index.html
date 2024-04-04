@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FAQ With jQuery</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta name="keyword" content="html,css,javascript">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, intaial-scale=5.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>	
+</head>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	.container {
+	    width: 100%;
+	    max-width: 1400px;
+	    margin: 0 auto;
+	}
+	.faq-s {
+    	padding: 100px 0;
+	}
+	.question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+	}
+	.faq-box {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 5px;
+	}
+	.answer p {
+    font-size: 18px;
+    line-height: 26px;
+	}
+	.faq-m {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+	}
+	.faq-arrow {
+    height: 40px;
+    transition: all 350ms;
+	}
+	.answer{
+		display: none;
+		padding: 10px 20px;
+	}
+	.faq-box.active .faq-arrow{
+		rotate: 180deg;
+	}
+	.faq-box.active .question h3 {
+    	color: #000dff;
+	}
+	.faq-box.active .faq-arrow svg {
+    	fill: #000dff;
+	}
+</style>
+<body>
+<section class="faq-s">
+	<div class="container">
+		<div class="faq-m">
+			<div class="faq-box">
+				<div class="question">
+					<h3>What does FAQ mean?</h3>
+					<div class="faq-arrow">
+						<svg width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><g><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 15l-4.243-4.243 1.415-1.414L12 12.172l2.828-2.829 1.415 1.414z"></path></g></g></svg>
+					</div> 
+				</div>
+				<div class="answer">
+					<p>It stands for frequently-asked questions, and it’s a page on a website that gives quick answers to customer questions. The idea is to keep the answers short and direct so that people find info quickly.</p>
+				</div>
+			</div>
+			<div class="faq-box">
+				<div class="question">
+					<h3>What does FAQ mean?</h3>
+					<div class="faq-arrow">
+						<svg width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><g><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 15l-4.243-4.243 1.415-1.414L12 12.172l2.828-2.829 1.415 1.414z"></path></g></g></svg>
+					</div> 
+				</div>
+				<div class="answer">
+					<p>It stands for frequently-asked questions, and it’s a page on a website that gives quick answers to customer questions. The idea is to keep the answers short and direct so that people find info quickly.</p>
+				</div>
+			</div>
+			<div class="faq-box">
+				<div class="question">
+					<h3>What does FAQ mean?</h3>
+					<div class="faq-arrow">
+						<svg width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><g><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 15l-4.243-4.243 1.415-1.414L12 12.172l2.828-2.829 1.415 1.414z"></path></g></g></svg>
+					</div> 
+				</div>
+				<div class="answer">
+					<p>It stands for frequently-asked questions, and it’s a page on a website that gives quick answers to customer questions. The idea is to keep the answers short and direct so that people find info quickly.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.question').on('click',function(){
+
+			if( $(this).parent().hasClass('active') ) {
+				// if active then click to remove active & hide
+				$(this).parent().removeClass('active').children('.answer').slideUp();
+			} else {
+				// before click add active class remove & hide
+				let fAQ = $('.faq-box.active'); 
+				fAQ.removeClass('active').children('.answer').slideUp();
+				// click class add and show
+				$(this).parent().addClass('active').children('.answer').slideDown();
+			}
+		})
+	});
+</script>
+</html>
